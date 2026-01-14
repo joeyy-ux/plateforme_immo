@@ -388,7 +388,7 @@ const Home = () => {
         </div>
         <div className={styles.youAreItem}>
           <h4>Vendez/Louez</h4>
-          <p>Trouvez rapidement acquéreurs/locataires</p>ccccccccccccccccccccccccccccc
+          <p>Trouvez rapidement acquéreurs/locataires</p>
         </div>
       </div>
     </div>
@@ -398,5 +398,5 @@ const Home = () => {
     </div>
   );
 };
-vvvvvbbbbb
+
 export default Home;
