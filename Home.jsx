@@ -31,7 +31,7 @@ const Home = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [properties, setProperties] = useState([]);
   const [loadingProperties, setLoadingProperties] = useState(true);
-  const [propertiesError, setPropertiesError] = useState(null);
+  const [propertiesError, setPropertiesError] = useState(null);ccccccccc
 
   useEffect(() => {
     const fetchProperties = async () => {
