@@ -1,0 +1,668 @@
+/* mesAnnonces.module.css - Version responsive complète */
+
+/* ==================== VARIABLES CSS ==================== */
+:root{
+  --blue-marine: #0A1A2F;        /* Couleur principale bleu marine */
+  --orange:      #f28c28;        /* Orange pour les accents */
+  --orange-dark: #e05a00;        /* Orange foncé */
+  --green:       #2BAE66;        /* Vert pour statut "publié" */
+  --red:         #d94b4b;        /* Rouge pour statut "suspendu" et actions dangereuses */
+  --white:       #ffffff;        /* Blanc */
+  --muted:       #6B7280;        /* Gris pour texte secondaire */
+  --card-radius: 12px;           /* Rayon des coins des cartes */
+  --shadow-soft: 0 8px 22px rgba(10,26,47,0.08); /* Ombre douce */
+  --shadow-low: 0 6px 16px rgba(10,26,47,0.06);  /* Ombre légère */
+}
+
+/* ==================== IMPORTS ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+/* ==================== SECTION PRINCIPALE ==================== */
+.mesBiens{
+  min-height: 100vh;                    /* Prend toute la hauteur de l'écran */
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--blue-marine);            /* Couleur de texte principale */
+  display: block;
+  background: transparent;              /* Fond transparent */
+  padding: 2rem;                        /* Padding uniforme sur tous les côtés */
+  box-sizing: border-box;               /* Inclut padding dans la largeur */
+}
+
+/* ==================== GRILLE DE CARTES ==================== */
+.grilleCartes{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grille responsive */
+  gap: 1.5rem;                         /* Espacement entre les cartes */
+  align-items: start;                   /* Aligne les cartes en haut */
+  justify-content: start;               /* Aligne à gauche */
+  padding: 0;
+}
+
+/* ==================== ÉTATS VIDES ET CHARGEMENT ==================== */
+.aucuneAnnonce{
+  background: var(--white);
+  color: var(--muted);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+  grid-column: 1 / -1;                  /* Prend toute la largeur de la grille */
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+/* ==================== CARTE ANNONCE ==================== */
+.carteBien{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  padding: 0.9rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(10,26,47,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;                         /* Prend toute la hauteur disponible */
+  box-sizing: border-box;
+}
+
+/* Effet au survol */
+.carteBien:focus{ 
+  outline: 2px solid rgba(31,78,121,0.12); 
+}
+.carteBien:hover{ 
+  transform: translateY(-4px); 
+  box-shadow: 0 12px 28px rgba(10,26,47,0.12);
+}
+
+/* ==================== PHOTO DE L'ANNONCE ==================== */
+.photoBien{
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f2f4f6;                  /* Fond de secours */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;                   /* Pour positionner le badge de statut */
+}
+
+.photoBien img{ 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;                    /* Couvre l'espace sans déformation */
+  display: block;
+  transition: transform 0.3s ease;      /* Animation au survol */
+}
+
+.carteBien:hover .photoBien img {
+  transform: scale(1.05);               /* Zoom léger au survol */
+}
+
+/* ==================== BADGE DE STATUT ==================== */
+.statut{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;                 /* Forme parfaitement ronde */
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--white);
+  box-shadow: var(--shadow-low);
+  z-index: 4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Couleurs des statuts */
+.publie{ background: var(--green); }
+.attente{ background: var(--orange); }
+.suspendu{ background: var(--red); }
+
+/* ==================== INFORMATIONS DE L'ANNONCE ==================== */
+.infosBien{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;                              /* Prend l'espace restant */
+}
+
+.topRow{ 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 0.75rem; 
+}
+
+.titreText{ 
+  font-size: 1.05rem; 
+  font-weight: 800; 
+  color: var(--blue-marine); 
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;              /* Coupe les mots longs */
+}
+
+.infoLine{ 
+  margin: 0; 
+  font-size: 0.95rem; 
+  color: var(--blue-marine);
+  line-height: 1.4;
+}
+
+.infoLine strong {
+  color: var(--blue-marine);
+  font-weight: 700;
+}
+
+/* Style spécial pour le prix */
+.price{ 
+  color: var(--orange-dark); 
+  font-weight: 800; 
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+/* Style pour la date de publication */
+.since{ 
+  font-size: 0.85rem; 
+  color: var(--muted); 
+  margin: 0;
+  font-style: italic;
+}
+
+/* ==================== BOUTONS D'ACTIONS ==================== */
+.actions{
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(10,26,47,0.06);
+  flex-wrap: wrap;                      /* Passe à la ligne si nécessaire */
+}
+
+/* Styles communs pour tous les boutons */
+.btnDetails, .modifyBtn, .deleteBtn, .contratBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;                              /* Tous les boutons de même largeur */
+  min-width: 80px;                      /* Largeur minimale */
+  min-height: 36px;                     /* Hauteur minimale pour accessibilité */
+  text-align: center;
+}
+
+/* Bouton Voir (bleu) */
+.btnDetails{ 
+  background: linear-gradient(180deg, #0b79d0, #085f9a); 
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(11,121,208,0.15);
+}
+
+.btnDetails:hover {
+  background: linear-gradient(180deg, #085f9a, #064a7a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11,121,208,0.25);
+}
+
+/* Bouton Modifier (orange) */
+.modifyBtn{ 
+  background: transparent; 
+  color: var(--orange-dark); 
+  border: 2px solid rgba(224,140,40,0.15);
+}
+
+.modifyBtn:hover {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* Bouton Supprimer (rouge) */
+.deleteBtn{ 
+  background: transparent; 
+  color: var(--red); 
+  border: 2px solid rgba(217,75,75,0.15);
+}
+
+.deleteBtn:hover {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+  transform: translateY(-2px);
+}
+
+/* Bouton Contrat (vert) */
+.contratBtn{ 
+  background: transparent; 
+  color: var(--green); 
+  border: 2px solid rgba(43,174,102,0.15);
+}
+
+.contratBtn:hover {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+
+/* Icônes Font Awesome dans les boutons */
+.btnDetails i,
+.modifyBtn i,
+.deleteBtn i,
+.contratBtn i {
+  font-size: 0.9rem;
+}
+
+/* ==================== CONFIRMATION DE SUPPRESSION ==================== */
+.confirmRow{ 
+  margin-top: 0.8rem; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  gap: 0.8rem; 
+  padding: 0.8rem; 
+  border-radius: 8px; 
+  background: rgba(255,255,255,0.95); 
+  border: 1px solid rgba(10,26,47,0.04);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.confirmActions{ 
+  display: flex; 
+  gap: 0.6rem; 
+}
+
+/* Bouton de confirmation */
+.confirmBtn{ 
+  padding: 0.5rem 0.9rem; 
+  border-radius: 8px; 
+  background: linear-gradient(180deg, var(--orange-dark), #b83d00); 
+  color: var(--white); 
+  border: none; 
+  font-weight: 700; 
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.confirmBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(224, 90, 0, 0.2);
+}
+
+/* Bouton d'annulation */
+.cancelBtn{ 
+  padding: 0.5rem 0.9rem; 
+  border-radius: 8px; 
+  background: var(--white); 
+  color: var(--blue-marine); 
+  border: 1px solid rgba(10,26,47,0.06); 
+  font-weight: 700; 
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.cancelBtn:hover {
+  background: rgba(10,26,47,0.03);
+  transform: translateY(-1px);
+}
+
+/* ==================== BANNIÈRE DE MESSAGE ==================== */
+.messageBanner{ 
+  width: 100%; 
+  padding: 1rem 1.25rem; 
+  border-radius: 10px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 1rem; 
+  font-weight: 700; 
+  box-shadow: var(--shadow-soft); 
+  margin: 0 0 1.5rem 0; 
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Animation d'apparition */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Message de succès */
+.msgSuccess{ 
+  background: #e9f9ee; 
+  color: #116633; 
+  border: 1px solid rgba(43,174,102,0.12); 
+}
+
+/* Message d'erreur */
+.msgError{ 
+  background: #fff5f5; 
+  color: #7a1b1b; 
+  border: 1px solid rgba(255,68,68,0.06); 
+}
+
+/* Bouton de fermeture du message */
+.msgClose{ 
+  background: transparent; 
+  border: none; 
+  font-weight: 700; 
+  cursor: pointer; 
+  color: inherit; 
+  padding: 4px 8px; 
+  border-radius: 6px; 
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.msgClose:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* ---------- TABLETTES (901px - 1200px) ---------- */
+@media (max-width: 1200px) {
+  .mesBiens {
+    padding: 1.75rem;
+  }
+  
+  .grilleCartes {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .photoBien {
+    height: 150px;
+  }
+}
+
+/* ---------- TABLETTES MOYENNES (768px - 900px) ---------- */
+@media (max-width: 900px) {
+  .mesBiens {
+    padding: 1.5rem;
+  }
+  
+  .grilleCartes {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .photoBien {
+    height: 140px;
+  }
+  
+  .titreText {
+    font-size: 1rem;
+  }
+  
+  .infoLine {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- TABLETTES PORTRAIT ET GRANDS MOBILES (601px - 767px) ---------- */
+@media (max-width: 767px) {
+  .mesBiens {
+    padding: 1.25rem;
+  }
+  
+  .grilleCartes {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 1rem;
+  }
+  
+  .carteBien {
+    padding: 0.75rem;
+  }
+  
+  .photoBien {
+    height: 130px;
+  }
+  
+  .titreText {
+    font-size: 0.95rem;
+  }
+  
+  .infoLine {
+    font-size: 0.85rem;
+  }
+  
+  .price {
+    font-size: 0.9rem;
+  }
+  
+  .since {
+    font-size: 0.8rem;
+  }
+  
+  /* Ajustement des boutons d'actions */
+  .btnDetails, .modifyBtn, .deleteBtn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 70px;
+  }
+  
+  .btnDetails i,
+  .modifyBtn i,
+  .deleteBtn i {
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------- MOBILES PAYSAGE (481px - 600px) ---------- */
+@media (max-width: 600px) {
+  .mesBiens {
+    padding: 1rem;
+  }
+  
+  .grilleCartes {
+    grid-template-columns: 1fr; /* 1 colonne */
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .photoBien {
+    height: 180px; /* Plus grande sur mobile pour meilleure visibilité */
+  }
+  
+  .aucuneAnnonce {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+  
+  .messageBanner {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .confirmRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .confirmActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* ---------- MOBILES PORTRAIT (0 - 480px) ---------- */
+@media (max-width: 480px) {
+  .mesBiens {
+    padding: 0.875rem;
+  }
+  
+  .grilleCartes {
+    gap: 0.875rem;
+  }
+  
+  .carteBien {
+    padding: 0.75rem;
+  }
+  
+  .photoBien {
+    height: 160px;
+  }
+  
+  .statut {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .titreText {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  
+  .infoLine {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+  
+  .price {
+    font-size: 0.9rem;
+  }
+  
+  .since {
+    font-size: 0.8rem;
+  }
+  
+  /* Optimisation des boutons pour petits écrans */
+  .actions {
+    gap: 0.5rem;
+  }
+  
+  .btnDetails, .modifyBtn, .deleteBtn {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.75rem;
+    min-width: 60px;
+    min-height: 34px;
+  }
+  
+  .btnDetails span,
+  .modifyBtn span,
+  .deleteBtn span {
+    font-size: 0.75rem;
+  }
+  
+  .btnDetails i,
+  .modifyBtn i,
+  .deleteBtn i {
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------- TRÈS PETITS MOBILES (0 - 360px) ---------- */
+@media (max-width: 360px) {
+  .mesBiens {
+    padding: 0.75rem;
+  }
+  
+  .photoBien {
+    height: 140px;
+  }
+  
+  .titreText {
+    font-size: 0.9rem;
+  }
+  
+  .infoLine {
+    font-size: 0.8rem;
+  }
+  
+  /* Sur très petits écrans, on peut masquer le texte des boutons */
+  .btnDetails span,
+  .modifyBtn span,
+  .deleteBtn span {
+    display: none;
+  }
+  
+  .btnDetails, .modifyBtn, .deleteBtn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    min-width: auto;
+  }
+  
+  .btnDetails i,
+  .modifyBtn i,
+  .deleteBtn i {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  
+  /* Ajustement de la confirmation de suppression */
+  .confirmRow {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .confirmBtn, .cancelBtn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==================== ACCESSIBILITÉ ==================== */
+
+/* Amélioration du focus pour la navigation au clavier */
+.btnDetails:focus,
+.modifyBtn:focus,
+.deleteBtn:focus,
+.confirmBtn:focus,
+.cancelBtn:focus,
+.msgClose:focus {
+  outline: 2px solid var(--blue-marine);
+  outline-offset: 2px;
+}
+
+/* Support des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  .carteBien,
+  .photoBien img,
+  .btnDetails,
+  .modifyBtn,
+  .deleteBtn,
+  .confirmBtn,
+  .cancelBtn,
+  .messageBanner {
+    transition: none;
+  }
+  
+  .carteBien:hover {
+    transform: none;
+  }
+}

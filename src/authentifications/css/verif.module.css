@@ -1,0 +1,171 @@
+/* src/styles/Verif.module.css */
+
+/* Police pro Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --blue-marine: #0A1A2F;
+  --blue-royal:  #1F4E79;
+  --orange:      #F28C28;
+  --orange-dark: #e05a00;
+  --green:       #2BAE66;
+  --white:       #FFFFFF;
+  --muted:       #6B7280;
+  --error:       #ff4444;
+  --success:     #155724;
+  --card-shadow: 0 10px 30px rgba(10,26,47,0.08);
+}
+
+/* Page wrapper */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 2vw;
+  background: linear-gradient(135deg, var(--blue-marine), var(--blue-royal));
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Card */
+.container {
+  width: 100%;
+  max-width: 560px;
+  background: var(--white);
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Logo circle */
+.logo {
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg,#f6f9fb,#ffffff);
+  color: var(--blue-royal);
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+  box-shadow: 0 8px 20px rgba(16,30,51,0.06);
+}
+
+/* Title */
+.title {
+  font-size: 1.75rem;
+  margin: 0.25rem 0 0.6rem;
+  color: var(--blue-marine);
+  font-weight: 700;
+}
+
+/* Success / error messages */
+.message-success,
+.message-error {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.message-success {
+  background: #dff0e6;
+  color: var(--success);
+  border: 1px solid rgba(37, 140, 95, 0.08);
+}
+
+.message-error {
+  background: #fff0f0;
+  color: #7a1b1b;
+  border: 1px solid rgba(255,68,68,0.06);
+}
+
+.iconSuccess { color: var(--green); font-size: 1.05rem; }
+.iconError   { color: #d64545; font-size: 1.05rem; }
+
+/* Info card */
+.cardInfo {
+  background: #f6fbff;
+  border-left: 6px solid var(--blue-royal);
+  padding: 1rem;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  color: #0f1724;
+  line-height: 1.5;
+}
+
+.lead { font-size: 0.98rem; color: #0f1724; margin-bottom: 0.35rem; }
+.email { display:block; margin-top: 0.5rem; color: var(--blue-royal); font-weight: 700; font-size: 1rem; }
+.note  { color: var(--muted); font-size: 0.95rem; }
+
+/* inactive badge */
+.inactive {
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* Resend block */
+.resendBlock {
+  margin-top: 0.6rem;
+  display:flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+/* question line */
+.resendQuestion {
+  font-size: 0.96rem;
+  color: var(--muted);
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+}
+
+.iconPlane { color: var(--orange); }
+
+/* Button */
+.btn {
+  padding: 0.85rem 1.25rem;
+  background: linear-gradient(180deg,var(--orange),var(--orange-dark));
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(242,140,40,0.12);
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  filter: brightness(0.98);
+  box-shadow: 0 14px 26px rgba(224,90,0,0.14);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  background: linear-gradient(180deg,#e6e6e6,#d6d6d6);
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 1.5rem; border-radius: 0.85rem; }
+  .title { font-size: 1.35rem; }
+  .logo { width: 4.2rem; height: 4.2rem; font-size: 1.15rem; }
+  .cardInfo { font-size: 0.92rem; }
+  .btn { width: 100%; }
+}

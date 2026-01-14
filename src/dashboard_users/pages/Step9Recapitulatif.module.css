@@ -1,0 +1,209 @@
+:root {
+  --primary: #1e40af;
+  --primary-hover: #1e3a8a;
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  --bg-white: #ffffff;
+  --bg-soft: #f8fafc;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  --border: #e5e7eb;
+
+  --radius: 14px;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   TITRE & DESCRIPTION
+========================= */
+.stepTitle {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.stepDescription {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   SECTION
+========================= */
+.section {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Header section */
+.section header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.section header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* Bouton modifier */
+.section header button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.section header button:hover {
+  background-color: var(--bg-soft);
+}
+
+/* =========================
+   LISTES & CHAMPS
+========================= */
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section li {
+  font-size: 14px;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.section li strong {
+  font-weight: 600;
+}
+
+/* Sous-titres internes */
+.section h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   TEXTE "AUCUN RENSEIGNEMENT"
+========================= */
+.empty {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 8px 0;
+}
+
+/* =========================
+   CONFIRMATION
+========================= */
+.confirmation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  margin: 32px 0 20px;
+  font-size: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.confirmation svg {
+  font-size: 18px;
+  color: var(--success);
+}
+
+/* =========================
+   ERREUR GLOBALE
+========================= */
+.error {
+  text-align: center;
+  color: var(--danger);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   BOUTON PUBLIER
+========================= */
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-hover)
+  );
+  color: #ffffff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    opacity 0.15s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .section {
+    padding: 18px;
+  }
+
+  .section header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .submitBtn {
+    font-size: 15px;
+    padding: 14px;
+  }
+}

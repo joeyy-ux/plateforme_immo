@@ -1,0 +1,65 @@
+.container{padding:24px;max-width:1200px;margin:0 auto;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.title{margin:0;font-size:1.6rem;color:#0b3954;letter-spacing:0.2px}
+.subtitle{margin:4px 0 0;color:#5b6b73}
+.headerLeft{display:flex;align-items:center;gap:12px}
+.headerIcon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#1F4E79,#3a6fa6);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
+.headerRight{display:flex;align-items:center}
+.headerAction{background:#fff;border:1px solid #e6eef8;padding:8px 10px;border-radius:8px;display:flex;gap:8px;align-items:center;cursor:pointer}
+
+.statsGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px}
+.statCard{background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(11,33,46,0.04);padding:14px;border-radius:12px;box-shadow:0 8px 24px rgba(11,33,46,0.04);display:flex;align-items:center}
+.statCardAction{background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(11,33,46,0.04);padding:12px;border-radius:12px;display:flex;flex-direction:column;justify-content:center}
+.statInner{display:flex;align-items:center;gap:12px}
+.statIcon{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#1F4E79,#3a6fa6);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}
+.statText{display:flex;flex-direction:column}
+.statLabel{color:#56707a;font-weight:700;margin-bottom:6px;font-size:0.9rem}
+.statValue{font-size:1.4rem;font-weight:800;color:#123244}
+.actionsRow{display:flex;gap:8px}
+.actionBtn{background:#1F4E79;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.actionBtn:hover{opacity:0.95}
+
+.actionsBar{margin:12px 0 18px}
+
+.trendSection{margin-bottom:18px}
+.chartContainer{width:100%;height:220px;display:flex;align-items:center;justify-content:center}
+.chartSvg{width:100%;height:200px}
+.recalcBtn{background:#ffffff;border:1px solid #e6eef8;padding:8px 10px;border-radius:8px;cursor:pointer;margin-left:12px}
+.recalcBtn:hover{background:#f5fbff}
+
+/* message modal */
+.modalOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:4000}
+.modalBox{background:#fff;padding:18px;border-radius:10px;max-width:720px;width:92%;box-shadow:0 20px 60px rgba(2,6,23,0.3)}
+.modalHeader{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.modalTitle{font-weight:700;color:#123244}
+.modalBody textarea{width:100%;min-height:120px;border:1px solid #e6eef8;padding:8px;border-radius:8px}
+.modalFooter{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+.btnPrimary{background:#1F4E79;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.btnSecondary{background:#fff;border:1px solid #e6eef8;padding:8px 12px;border-radius:8px;cursor:pointer}
+
+
+.mainGrid{display:grid;grid-template-columns:1fr;gap:20px}
+.leftCol{min-width:0}
+.card{background:#fff;padding:16px;border-radius:12px;border:1px solid rgba(11,33,46,0.06);box-shadow:0 6px 20px rgba(2,6,23,0.04)}
+.cardTitle{margin:0 0 12px 0;color:#123244}
+
+/* users table */
+.userTable{width:100%;border-collapse:collapse}
+.userTable th,.userTable td{padding:10px 12px;text-align:left;border-bottom:1px solid #f1f5f8}
+.userTable th{color:#56707a;font-weight:700;font-size:0.95rem}
+.userRow:hover{background:#fbfdff}
+.rowActions{display:flex;gap:8px}
+.actionSmall{background:#ffffff;border:1px solid #e6eef8;padding:6px 8px;border-radius:6px;cursor:pointer}
+.actionSmall:hover{background:#f5fbff}
+
+/* subtle header for table */
+.userTable thead th{background:linear-gradient(180deg,#fbfdff,#f7fbff);}
+.userTable tbody tr{transition:background .12s ease}
+
+/* Responsive */
+@media(max-width:900px){
+  .statsGrid{grid-template-columns:repeat(2,1fr)}
+  .mainGrid{grid-template-columns:1fr}
+  .rightCol{order:2}
+  .header{flex-direction:column;align-items:flex-start;gap:12px}
+}

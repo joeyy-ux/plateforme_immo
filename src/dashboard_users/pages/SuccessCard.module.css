@@ -1,0 +1,91 @@
+/* SuccessCard.module.css - centered white card, look like your newsletter example */
+:root{
+  --purple: #352a7a;     /* titre / bouton (ajuste si besoin) */
+  --purple-dark: #2a1f64;
+  --card-bg: #ffffff;
+  --text: #0b1730;
+  --muted: #6b7280;
+  --shadow: 0 12px 40px rgba(15,23,40,0.12);
+  --radius: 0.8rem;
+}
+
+/* overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(8,12,20,0.35);
+  z-index: 1200;
+  animation: overlayFade .14s ease;
+}
+
+/* card */
+.card {
+  width: 100%;
+  max-width: 420px;        /* like your screenshot width */
+  background: var(--card-bg);
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  position: relative;
+  text-align: center;
+  transform-origin: center;
+  animation: cardPop .18s ease;
+}
+
+/* close button top-right */
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* header */
+.header { display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom: 8px; }
+.icon { color: var(--purple); font-size: 32px; }
+.title { margin:0; font-size: 20px; color: var(--purple); font-weight: 700; }
+
+/* message */
+.message {
+  margin: 6px 0 18px 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* actions - big purple CTA like your screenshot */
+.actions { display:flex; justify-content:center; gap:12px; }
+.okBtn {
+  background: linear-gradient(180deg, var(--purple), var(--purple-dark));
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 240px;
+  box-shadow: 0 8px 20px rgba(53,42,122,0.12);
+}
+.okBtn:hover { transform: translateY(-2px); }
+
+/* small animations */
+@keyframes cardPop {
+  from { transform: translateY(-8px) scale(.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* responsive */
+@media (max-width:420px) {
+  .card { margin: 0 16px; max-width: calc(100% - 32px); padding: 18px; }
+  .okBtn { min-width: 100%; }
+}

@@ -1,0 +1,134 @@
+.page {
+  font-family: "Inter", sans-serif;
+  color: #1f2937;
+}
+
+/* Header */
+.header {
+  background: #1f4c8b;
+  color: white;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerBtn {
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  background-image: url("/hero-house.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  background: rgba(0, 0, 0, 0.35);
+  text-align: center;
+  padding: 80px 20px;
+  color: white;
+}
+
+.heroOverlay h1 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.heroOverlay p {
+  max-width: 700px;
+  margin: 0 auto 24px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.primaryBtn {
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryBtn {
+  background: #18b47b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Center */
+.center {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 0 60px;
+}
+
+.features h3 {
+  color: #1f4c8b;
+}
+
+/* Pricing */
+.pricing {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.highlight {
+  color: #ff7a00;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.pricing ul {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.pricing li {
+  margin-bottom: 10px;
+}
+
+/* Steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 40px 60px 80px;
+  text-align: center;
+}
+
+.steps h4 {
+  color: #1f4c8b;
+  margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,206 @@
+/* ==========================================================================
+   src/styles/Confirmation.module.css
+   Styles pour la page de confirmation (Confirmation.jsx)
+   - Responsive et accessible
+   - Les noms de classes correspondent à ceux utilisés dans le composant
+   ========================================================================== */
+
+/* Import font (si non chargé globalement) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --blue-marine: #0A1A2F;
+  --blue-royal:  #1F4E79;
+  --orange:      #F28C28;
+  --orange-dark: #e05a00;
+  --green:       #2BAE66;
+  --white:       #ffffff;
+  --muted:       #6B7280;
+  --error:       #e74c3c;
+  --shadow:      0 12px 30px rgba(10,26,47,0.08);
+
+  --radius-lg: 1rem;
+  --gap-sm: 0.6rem;
+  --base-font: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --base-size: 16px;
+}
+
+/* Page wrapper */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 2vw;
+  background: linear-gradient(135deg, var(--blue-marine), var(--blue-royal));
+  font-family: var(--base-font);
+  font-size: var(--base-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: clamp(18px, 3.5vh, 36px);
+  box-shadow: var(--shadow);
+  text-align: center;
+  overflow: visible;
+}
+
+/* Logo circle */
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(180deg,#f6f9fb,#ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-royal);
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+  box-shadow: 0 8px 20px rgba(16,30,51,0.06);
+}
+
+/* Loading block */
+.loadingBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 0;
+}
+.loadingText {
+  color: var(--blue-marine);
+  font-weight: 600;
+}
+
+/* Spinner */
+.spinner {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 6px solid rgba(240,240,240,0.9);
+  border-top-color: var(--orange);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Icon circles for success / error */
+.iconCircle,
+.iconCircleError {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  margin: 6px auto 12px;
+}
+.iconCircle {
+  background: linear-gradient(180deg, rgba(43,174,102,0.12), rgba(43,174,102,0.04));
+}
+.iconCircleError {
+  background: linear-gradient(180deg, rgba(231,76,60,0.12), rgba(231,76,60,0.04));
+}
+.iconSuccess { color: var(--green); font-size: 2.2rem; }
+.iconError   { color: var(--error); font-size: 1.9rem; }
+
+/* Title */
+.title {
+  font-size: 1.6rem;
+  color: var(--blue-marine);
+  margin: 0.15rem 0 0.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Message paragraphs */
+.message {
+  color: #0f1724;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0.6rem 0;
+}
+.messageError {
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* Actions row */
+.actions {
+  margin-top: 1.15rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Primary button (connexion) */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.1rem;
+  background: linear-gradient(180deg, var(--green), #1E7045);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(43,174,102,0.12);
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btnPrimary:hover { transform: translateY(-3px); filter: brightness(.98); box-shadow: 0 14px 30px rgba(43,174,102,0.14); }
+.btnPrimary:focus-visible { outline: 3px solid rgba(31,78,121,0.12); outline-offset: 3px; border-radius: 999px; }
+.btnIcon { font-size: 1.05rem; }
+
+/* Secondary button (revenir) */
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(180deg, var(--orange), var(--orange-dark));
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.98rem;
+  box-shadow: 0 10px 22px rgba(242,140,40,0.12);
+}
+.btnSecondary:hover { transform: translateY(-3px); }
+.btnSecondary:focus-visible { outline: 3px solid rgba(31,78,121,0.12); outline-offset: 3px; border-radius: 999px; }
+
+/* Info block / message panels kept generic (if needed) */
+.message-success,
+.message-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-sm);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .card { padding: 1.25rem; border-radius: 0.9rem; }
+  .logo { width: 56px; height: 56px; font-size: 1.15rem; }
+  .title { font-size: 1.25rem; }
+  .iconCircle, .iconCircleError { width: 84px; height: 84px; }
+  .spinner { width: 44px; height: 44px; border-width: 5px; }
+  .btnPrimary, .btnSecondary { width: 100%; justify-content: center; }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+  * { transition: none !important; animation-duration: 0s !important; }
+}

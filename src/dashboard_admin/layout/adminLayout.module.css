@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/*
+	adminLayout.module.css
+	----------------------
+	Styles commentés et organisés pour l'en-tête de l'administration.
+	Objectif : propre, moderne, maintenable.
+*/
+
+/* =====================
+	 Variables globales
+	 ===================== */
+:root{
+	--sidebar-w-desktop: 300px;
+
+  --blue-marine: #0A1A2F;
+  --blue-royal:  #1F4E79;
+
+  --bg-page: #F4F7FA;
+  --white: #FFFFFF;
+  --border-soft: rgba(10, 26, 47, 0.08);
+
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --header-height: 72px;
+}
+
+
+/* =====================
+	 Structure principale
+	 ===================== */
+.wrapper{
+	display: flex;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-page);
+}
+
+/* Contenu principal (à droite de la sidebar) */
+.content{
+  flex: 1;
+  margin-left: var(--sidebar-w-desktop);
+  transition: margin 0.3s ease;
+}
+
+
+/* =====================
+	 Header — conteneur principal
+	 ===================== */
+/*
+	Le header est présenté sous forme de carte flottante
+	avec un léger flou et une ombre douce pour un rendu moderne.
+*/
+.header{
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-w-desktop);
+  right: 0;
+  height: var(--header-height);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(10, 26, 47, 0.06);
+}
+
+
+/* =====================
+	 Zones du header
+	 ===================== */
+.headerLeft{
+    display: flex;
+	align-items: center;
+}
+
+/* Logo — gauche
+	 Garder le logo compact et arrondi pour un rendu propre. */
+.logo{
+	width: 200px;
+	height: 52px;
+	border-radius: 10px;
+	object-fit: cover;
+	background: var(--card);
+	box-shadow: 0 6px 18px rgba(16,42,67,0.06);
+}
+
+
+.headerCenter{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   BARRE DE RECHERCHE (COMME IMAGE 2)
+   ========================= */
+
+.searchForm {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 44px;
+  padding: 0 44px 0 16px; /* place pour l'icône à droite */
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  background: #F8FAFC;
+  font-size: 0.9rem;
+  color: var(--blue-marine);
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: #64748B;
+}
+
+/* Icône intégrée à droite */
+.searchBtn {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--blue-royal);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBtn:hover {
+  background: #173E63;
+}
+
+.headerRight{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+/* Bouton notification — style premium */
+.iconBtn{
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--blue-royal), var(--blue-marine));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Texte pro à droite (ex: 'Tableau de bord — Administration') */
+.profileName{
+	font-weight: 700;
+	color: var(--blue-1);
+	font-size: 0.95rem;
+}
+
+
+.hamburger {
+  display: none; /* Caché par défaut sur desktop */
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--blue-royal);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s ease;
+}
+
+.hamburger:hover {
+  background-color: rgba(31, 78, 121, 0.08);
+}
+
+
+/* =========================
+   CONTENU PRINCIPAL
+   ========================= */
+
+.main {
+  padding: calc(var(--header-height) + 24px) 24px 24px;
+}
+
+
+
+/* =========================
+   RESPONSIVE (MENU BURGER APPARAÎT SUR MOBILE/TABLETTE)
+   ========================= */
+
+@media (max-width: 1024px) {
+  .contentArea {
+    margin-left: 0;
+  }
+
+  .header {
+    left: 0;
+  }
+
+  /* Le hamburger apparaît sur tablette/mobile */
+  .hamburger {
+    display: flex; /* Affiche le burger sur mobile/tablette */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    display: none;
+  }
+
+  .searchBox {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchBox {
+    max-width: 260px;
+  }
+}

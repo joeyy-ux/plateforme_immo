@@ -1,0 +1,286 @@
+/* ===== IMPORTATION DES POLICES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+.accueilContent {
+  margin-left: auto;
+  padding: 25px 40px;
+  background: #f4f6f9;
+  min-height: 100vh;
+  overflow-y: auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.accueilHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.accueilHeader h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.btnCompleterProfil {
+  background: green;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btnCompleterProfil:hover {
+  background: darkgreen;
+}
+
+/* Profil utilisateur */
+.profilUtilisateur {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.profilPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e0e0;
+}
+
+.profilPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.rondVide {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #999;
+}
+
+.profilInfo h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.verifie {
+  color: green;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.enAttente {
+  color: #b1833c;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nonVerifie {
+  color: red;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Statistiques */
+.statsSection {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.statIcon {
+  font-size: 2.5em;
+  color: #0c2b47;
+  margin-bottom: 10px;
+}
+
+.statIconConclu {
+  color: green;
+}
+
+.statInfo h3 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.statInfo p {
+  margin: 4px 0 0;
+}
+
+/* Notifications & Messages */
+.infoSection {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.notifications,
+.messages {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.infoSection h3 {
+  font-weight: 700;
+  border-bottom: 5px solid #0c2b47;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoSection ul {
+  list-style: none;
+}
+
+.infoSection li {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.infoSection li:last-child {
+  border-bottom: none;
+}
+
+.infoSection strong {
+  display: block;
+  color: #007bff;
+}
+
+.infoSection p {
+  margin: 4px 0;
+}
+
+.infoSection .date {
+  font-size: 0.8em;
+  color: #999;
+}
+
+.empty {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+  padding: 15px 0;
+}
+
+/* Dernières annonces */
+.sectionAnnonces {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.grilleAnnonces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.carteBien {
+  background: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.carteBien:hover {
+  transform: translateY(-5px);
+}
+
+.infosBien {
+  padding: 12px;
+  text-align: center;
+}
+
+.btnDetails {
+  display: inline-block;
+  background: #0c2b47;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  margin-top: 8px;
+  transition: background 0.2s ease;
+}
+
+.btnDetails:hover {
+  background: #0a1f29;
+}
+
+/* Statuts */
+.etatPublie { color: green; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
+.etatAttente { color: #ff9800; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
+.etatSuspendu { color: #dc3545; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
+.etatSupprime { color: #6c757d; font-weight: bold; font-size: 0.9em; margin-top: 10px; }
+.aucuneAnnonce { text-align: center; color: #888; font-style: italic; padding: 20px 0; }
+
+/* Scrollbar */
+.accueilContent::-webkit-scrollbar {
+  width: 8px;
+}
+.accueilContent::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+.accueilContent::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .accueilContent { width: 100%; padding: 20px; }
+  .statsSection,
+  .infoSection { flex-direction: column; }
+  .grilleAnnonces { grid-template-columns: 1fr; }
+}

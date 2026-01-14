@@ -1,0 +1,343 @@
+:root {
+  --primary: #1e40af;
+  --primary-hover: #1e3a8a;
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  --bg-white: #ffffff;
+  --bg-soft: #f8fafc;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  --border: #e5e7eb;
+
+  --radius: 12px;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   TITRE & SECTIONS
+   ========================= */
+.stepTitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 28px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 36px 0 18px;
+}
+
+/* =========================
+   BLOCK GÉNÉRAL
+   ========================= */
+.block {
+  background-color: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.blockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.blockHeader button {
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* =========================
+   FIELD / LABEL
+   ========================= */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.labelIcon {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+.required {
+  color: var(--danger);
+}
+
+/* =========================
+   INPUTS
+   ========================= */
+.inputWrapper {
+  position: relative;
+}
+
+/* Wrapper spécifique pour les inputs de type fichier afin d'afficher une bordure */
+.fileWrapper {
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+input[type="text"],
+input[type="url"],
+select {
+  width: 100%;
+  padding: 13px 42px 13px 14px; /* espace icône */
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  background-color: var(--bg-white);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* File input (pas de validation visuelle) */
+input[type="file"] {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  background: transparent;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
+}
+
+/* Désactivé */
+input:disabled {
+  background-color: #f1f5f9;
+  cursor: not-allowed;
+}
+
+/* =========================
+   STATES
+   ========================= */
+.valid {
+  border-color: var(--success) !important;
+}
+
+.error {
+  border-color: var(--danger) !important;
+}
+
+/* =========================
+   ICONES FEEDBACK
+   ========================= */
+.validIcon,
+.errorIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.validIcon {
+  color: var(--success);
+}
+
+.errorIcon {
+  color: var(--danger);
+}
+
+/* =========================
+   MESSAGE ERREUR
+   ========================= */
+.errorText {
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 6px;
+}
+
+/* =========================
+   PHOTO PRINCIPALE
+   ========================= */
+.centerPreview {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.preview {
+  max-width: 240px;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.existingPhotoLabel {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.photoLabel {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* =========================
+   PHOTOS PAR PIÈCE
+   ========================= */
+.previewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 90px);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.previewGrid img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   NOTE / COMPTEUR
+   ========================= */
+.note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* =========================
+   BOUTON AJOUT
+   ========================= */
+.addBtn {
+  width: 100%;
+  margin: 14px 0 10px;
+  padding: 14px;
+  background-color: transparent;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.addBtn:hover {
+  background-color: var(--bg-soft);
+}
+
+/* =========================
+   VIDÉO
+   ========================= */
+.video {
+  width: 100%;
+  height: 340px;
+  border-radius: var(--radius);
+  margin-top: 18px;
+  border: none;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================
+   ACTIONS
+   ========================= */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  gap: 16px;
+}
+
+.actions button {
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Précédent */
+.actions button:first-child {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+.actions button:first-child:hover {
+  background-color: var(--bg-soft);
+}
+
+/* Suivant */
+.actions button:last-child {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-hover)
+  );
+  color: #ffffff;
+  border: none;
+}
+
+.actions button:last-child:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+.photoItem {
+  position: relative;
+}
+
+.photoItem button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}

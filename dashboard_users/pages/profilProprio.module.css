@@ -1,0 +1,167 @@
+/* ==========================
+   RESET & CONTAINER LOCAL
+========================== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+.containerProprio {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c2b47, #1a446d);
+  padding: 2vh 2vw;
+}
+
+.ProfilProprio {
+  background: #fff;
+  padding: 4vh 3vw;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.2);
+  max-height: 100%;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================
+   TITRE FORMULAIRE
+========================== */
+.title {
+  font-weight: 700;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+}
+
+/* ==========================
+   MESSAGES SUCCESS / ERROR
+========================== */
+.successMsg {
+  color: green;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.errorMsg {
+  color: #ff4444;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ==========================
+   GROUPES DE CHAMPS
+========================== */
+.inputGroup {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.inputGroupLabel {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.inputGroupLabel svg {
+  margin-right: 0.5rem;
+  color: #ff6600;
+}
+
+/* ==========================
+   INPUTS & TEXTAREA
+========================== */
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+  border: 1px solid #0c2b47;
+}
+
+/* Bordure rouge pour erreur */
+.inputError {
+  border: 2px solid rgb(237, 15, 15) !important;
+}
+
+/* Bordure verte pour valide */
+.inputValid {
+  border: 2px solid rgb(40, 200, 40) !important;
+}
+
+/* ==========================
+   PREVIEW IMAGE / FILE
+========================== */
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.previewContainer img {
+  width: 100%;
+  max-width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  display: block;
+  background-color: #dcdcdc;
+}
+
+/* ==========================
+   BOUTON SUBMIT
+========================== */
+.submitBtn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: #ff6600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  margin-top: 1vh;
+}
+
+.submitBtn:hover {
+  background: #019875;
+}
+
+.submitBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ==========================
+   CHAMPS OBLIGATOIRES (*)
+========================== */
+.labelRequired::after {
+  content: " *";
+  color: red;
+  font-weight: bold;
+}
+
+/* ==========================
+   BORDURE INPUT ERREUR
+========================== */
+.hasError {
+  border: 0.15rem solid #f00;
+}

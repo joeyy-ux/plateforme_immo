@@ -1,0 +1,14 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Ajuste le contenu pour laisser de la place à la sidebar fixe */
+.content {
+  flex: 1;
+  margin-left: 20%; /* correspond à la largeur de la sidebar */
+  padding: 25px 40px;
+  overflow-y: auto;
+  background-color: #f4f6f9;
+}

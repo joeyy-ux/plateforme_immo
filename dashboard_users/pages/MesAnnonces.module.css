@@ -1,0 +1,159 @@
+/* Module CSS adapté depuis liste_annonce.css */
+.mesBiens {
+    width: 70%;
+    margin-left: auto;
+    padding: 20px 30px;
+}
+
+.mesBiens h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.grilleCartes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.carteBien {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carteBien:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.photoBien img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.infosBien {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.infosBien p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+.infosBien strong {
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.statut {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.publie {
+    color: green;
+}
+
+.attente {
+    color: #ffc107;
+}
+
+.date {
+    font-size: 0.85rem;
+}
+
+.btnDetails {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #0c2b47;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.btnDetails:hover {
+    background-color: #0a1f29;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: #1a3d63;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 100;
+    top: 38px;
+    right: 0;
+}
+
+.dropdownContent a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    gap: 6px;
+    font-size: 0.95rem;
+}
+
+.dropdownContent a:hover {
+    background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.aucuneAnnonce {
+    font-size: 1rem;
+    color: #666;
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .mesBiens {
+        width: 100%;
+        margin-left: 0;
+        padding: 15px;
+    }
+    .grilleCartes {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}

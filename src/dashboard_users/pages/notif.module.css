@@ -1,0 +1,8 @@
+.wrap { padding: 18px; }
+.header { margin-bottom: 12px; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.item { padding: 12px; border-radius: 10px; background: #fff; box-shadow: 0 6px 18px rgba(10,26,47,.06); }
+.title { font-weight: 700; margin-bottom: 6px; }
+.message { color: #333; }
+.meta { margin-top: 8px; font-size: .8rem; color: #666; }
+.empty { color: #666; padding: 12px; }

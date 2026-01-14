@@ -1,0 +1,134 @@
+/* ===== IMPORTATION DES POLICES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+.pageContainer {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c2b47, #1a446d);
+  padding: 2vh 2vw;
+}
+
+
+/* Conteneur principal */
+.completerProfil {
+  background: #fff;
+  padding: 4vh 3vw;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  color: #000;
+  box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.2);
+  overflow: hidden;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* TITRE */
+.title {
+  font-weight: 600;
+  margin-bottom: 6vh;
+  font-size: 1.5rem;
+}
+
+/* INPUT GROUP */
+.inputGroup {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.label i {
+  margin-right: 0.5rem;
+  color: #ff6600;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 2rem;
+  border: 1px solid #0c2b47;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+/* Bordure rouge pour erreur */
+.inputError {
+  border: 2px solid rgb(237, 15, 15) !important;
+}
+
+/* Bouton désactivé */
+.btnDisabled {
+  background-color: #ccc !important;
+  cursor: not-allowed;
+}
+
+/* BOUTON */
+.btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: #ff6600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  margin-top: 1vh;
+}
+
+/* AVATAR */
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatarPreview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.avatarPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.errorMessage {
+  font-size: 0.8rem;
+  color: #ff4444;
+  margin-top: 0.5vh;
+  font-weight: bold;
+}
+
+.successMessage {
+  font-size: 0.9rem;
+  color: #2ecc71;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

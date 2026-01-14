@@ -1,0 +1,252 @@
+/* ==========================================================================
+   src/styles/AuthForms.module.css
+   Version mise à jour — .inputControl pour wrapper inputs + icônes
+   Responsive, lisible, commenté.
+   ========================================================================== */
+
+/* Reset & font import */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation-duration: 0s !important; animation-iteration-count: 1 !important; }
+}
+
+/* Theme variables */
+:root {
+  --blue-marine: #0A1A2F;
+  --blue-royal:  #1F4E79;
+  --orange:      #F28C28;
+  --orange-dark: #e05a00;
+  --green:       #2BAE66;
+  --green-dark:  #1E7045;
+  --white:       #FFFFFF;
+  --gray-light:  #F5F5F5;
+  --muted:       #6B7280;
+  --error:       #ff4444;
+  --success:     #27ae60;
+  --radius-lg:   1rem;
+  --radius-md:   0.5rem;
+  --input-radius: 0.5rem;
+  --gap:         1rem;
+  --shadow:      0 8px 20px rgba(10,26,47,0.08);
+  --base-font:   'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --base-size:   16px;
+}
+
+/* Page container */
+.inscription {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6vh 2vw;
+  font-family: var(--base-font);
+  font-size: var(--base-size);
+  color: var(--blue-marine);
+  background: linear-gradient(135deg, var(--blue-marine), var(--blue-royal));
+}
+
+/* Card */
+.container-inscription {
+  width: 100%;
+  max-width: 540px;
+  background: var(--white);
+  padding: clamp(20px, 4.5vh, 52px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  text-align: center;
+  overflow: visible;
+}
+
+/* Logo */
+.logo { display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+.logo img { height: 80px; width: 400px; object-fit: cover; border-radius: 8px; }
+
+/* Title */
+.container-inscription h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight:700; color:var(--blue-marine); margin-bottom:0.35rem; }
+.container-inscription p.subtitle { color:var(--muted); font-size:0.95rem; margin-bottom:1rem; }
+
+/* Form group */
+.input-inscription-group { text-align:left; margin-bottom:0.9rem; position: relative; }
+.input-inscription-group label { display:inline-flex; align-items:center; gap:0.5rem; font-weight:600; font-size:0.95rem; color:var(--blue-marine); margin-bottom:0.45rem; }
+.label-required-inscription::after { content: " *"; color:#d64545; font-weight:700; }
+
+/* ===========================
+   INPUT CONTROL WRAPPER
+   - Use this wrapper around each input/select/textarea + icons
+   - Ensures icons are positioned relative to the input's box
+   =========================== */
+.inputControl {
+  position: relative; /* anchor for absolute icons */
+  display: block;
+}
+
+/* Inputs/selects/textarea */
+.inputControl input,
+.inputControl select,
+.inputControl textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  padding-right: 3.6rem; /* room for icons/toggle */
+  border-radius: var(--input-radius);
+  border: 1px solid rgba(10,26,47,0.12);
+  background: var(--white);
+  font-size: 1rem;
+  color: #0f1724;
+  transition: box-shadow 180ms ease, border-color 180ms ease, transform 80ms ease;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Placeholder */
+.inputControl input::placeholder,
+.inputControl textarea::placeholder { color: #9aa3b2; }
+
+/* Focus */
+.inputControl input:focus,
+.inputControl select:focus,
+.inputControl textarea:focus {
+  border-color: var(--blue-royal);
+  box-shadow: 0 6px 18px rgba(31,78,121,0.12);
+  transform: translateY(-1px);
+}
+
+/* Small variant */
+.lessRounded { border-radius: 0.35rem !important; }
+
+/* ===========================
+   Validation states (applied from React)
+   =========================== */
+.inputValid {
+  border: 1.5px solid var(--green) !important;
+  background: #f6fff6;
+  color: #0f1724;
+  box-shadow: 0 6px 16px rgba(43,174,102,0.06);
+}
+.inputError {
+  border: 1.5px solid var(--error) !important;
+  background: #fff6f6;
+  color: #0f1724;
+  box-shadow: 0 6px 16px rgba(255,68,68,0.04);
+}
+
+.error-message { font-size:0.875rem; color:var(--error); margin-top:0.45rem; font-weight:600; }
+
+/* ===========================
+   Icons positioning inside .inputControl
+   =========================== */
+.inputControl .inputValidIcon,
+.inputControl .inputErrorIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.05rem;
+  pointer-events: none;
+  z-index: 12;
+}
+.inputValidIcon { color: var(--success); }
+.inputErrorIcon { color: var(--error); }
+
+/* Password wrapper: shift icons to avoid toggle overlap */
+.withToggle { position: relative; }
+.withToggle .inputValidIcon,
+.withToggle .inputErrorIcon { right: 40px; }
+
+/* Password toggle button */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--blue-royal);
+  font-size: 1.12rem;
+  z-index: 10;
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===========================
+   Password criteria
+   =========================== */
+.password-criteria {
+  margin-top: 0.45rem;
+  list-style: none;
+  padding-left: 0.25rem;
+  font-size: 0.88rem;
+  color: var(--error);
+  display: none;
+}
+.password-criteria.active { display: block; }
+.password-criteria li { display:flex; align-items:center; gap:0.6rem; margin:0.25rem 0; color:var(--error); font-weight:600; }
+.password-criteria li::before { content: "✕"; color: var(--error); font-weight:700; }
+.password-criteria li.criteriaValid { color: var(--success); }
+.password-criteria li.criteriaValid::before { content: "✓"; color: var(--success); font-weight:700; }
+
+/* Password match message */
+.passwordMatch { color: var(--success); margin-top:0.45rem; font-weight:700; }
+
+/* ===========================
+   Custom checkbox
+   =========================== */
+.checkbox-label { display:inline-flex; align-items:center; gap:12px; font-size:0.95rem; color:var(--blue-marine); cursor:pointer; user-select:none; position:relative; }
+.checkbox { position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.custom-box { width:22px; height:22px; min-width:22px; border-radius:6px; border:2px solid rgba(10,26,47,0.12); background:var(--white); display:inline-block; transition: background 150ms ease, border-color 150ms ease, box-shadow 120ms ease; box-shadow: 0 4px 10px rgba(10,26,47,0.04) inset; }
+.checkbox:checked + .custom-box { background: linear-gradient(180deg, var(--green), var(--green-dark)); border-color: var(--green); box-shadow: 0 6px 18px rgba(43,174,102,0.14); }
+.checkbox:checked + .custom-box::after { content:""; display:block; width:6px; height:10px; border: solid #fff; border-width:0 2px 2px 0; transform: rotate(40deg); margin:2px 0 0 6px; }
+.checkbox:focus + .custom-box { box-shadow: 0 0 0 4px rgba(31,78,121,0.12); border-color: var(--blue-royal); }
+.checkbox-text { color: var(--blue-marine); font-weight:600; line-height:1.1; }
+.checkbox-error { margin-top:0.6rem; font-size:0.9rem; color:var(--error); font-weight:700; }
+
+/* ===========================
+   Buttons & messages
+   =========================== */
+.btn { width:100%; padding:0.95rem 1rem; border-radius:0.75rem; border:none; background: linear-gradient(180deg, var(--orange), var(--orange-dark)); color:var(--white); font-weight:700; font-size:1.05rem; cursor:pointer; margin-top:0.9rem; transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease; box-shadow: 0 8px 20px rgba(242,140,40,0.12); }
+.btn:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(.98); box-shadow: 0 12px 26px rgba(224,90,0,0.14); }
+.btn:disabled { background:#e6e6e6; color:#9b9b9b; cursor:not-allowed; box-shadow:none; }
+
+.error-global { border:1px solid rgba(255,68,68,0.14); padding:10px; margin-bottom:12px; background:#fff6f6; border-radius:8px; color:var(--error); font-size:0.95rem; }
+
+.have-account { margin-top:0.85rem; font-size:0.95rem; color:var(--muted); text-align:center; }
+.have-account a { color:var(--blue-royal); font-weight:600; text-decoration:none; margin-left:6px; }
+
+/* Accessibility */
+:focus { outline: none; }
+:focus-visible { outline: 3px solid rgba(31,78,121,0.18); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); border:0; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container-inscription { padding: 18px; border-radius:0.9rem; width:94%; box-shadow: 0 6px 18px rgba(10,26,47,0.06); }
+  .logo img { height:56px; }
+  .inputControl input, .inputControl select, .inputControl textarea { font-size:0.95rem; padding:0.75rem 0.9rem; }
+  .password-toggle { right:8px; }
+  .withToggle .inputValidIcon, .withToggle .inputErrorIcon { right:36px; }
+  .btn { font-size:1rem; padding:0.85rem; }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+  .container-inscription { padding:22px; width:92%; }
+  .logo img { height:64px; }
+}
+
+@media (min-width: 1200px) {
+  .container-inscription { max-width:640px; padding:40px; }
+}
+
+/* Utility used by React for marking criteria success */
+.criteriaValid { color: var(--success) !important; }
